@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 
 const Gallery = ({url}) => {
   const styles = {
-    background: `url(${url})`,
+    backgroundImage: `url(${url})`,
+    backgroundSize:'cover',
     width:'100%',
     height:400,
     zIndex:10,
-    backgroundSize: 'cover',
-    backgroundPostion: 'center'
   }
 
   return (

@@ -5,17 +5,17 @@ import brian from '../images/brian.jpg'
 import flatirons from '../images/flatirons.jpg'
 import skiing from '../images/skiing.jpeg'
 import snow from '../images/skiing.jpeg'
-// const imgUrl =
 
+const imgUrl=[
+  brian,
+  flatirons,
+  skiing,
+  snow
+]
 export default class Carousel extends Component {
   constructor(props){
     super(props)
-    this.imgUrl=[
-      brian,
-      flatirons,
-      skiing,
-      snow
-    ]
+
     this.state = {
       currentIndex: 0
     }
@@ -24,7 +24,7 @@ export default class Carousel extends Component {
     this.previousSlide = this.previousSlide.bind(this);
   }
   previousSlide() {
-    const lastIndex = this.imgUrl.length - 1
+    const lastIndex = imgUrl.length - 1
     const {currentIndex} = this.state
     const shouldResetIndex = currentIndex === 0;
     const index =  shouldResetIndex ? lastIndex : currentIndex - 1;
@@ -36,7 +36,7 @@ export default class Carousel extends Component {
   }
 
   nextSlide() {
-    const lastIndex = this.imgUrl.length - 1
+    const lastIndex = imgUrl.length - 1
     const { currentIndex } = this.state
     const shouldResetIndex = currentIndex === lastIndex
     const index =  shouldResetIndex ? 0 : currentIndex + 1
@@ -56,7 +56,7 @@ export default class Carousel extends Component {
          clickFunction={ this.previousSlide }
          glyph="&#9664;" />
 
-       <Gallery url={ this.imgUrl[this.state.currentIndex] } />
+       <Gallery url={ imgUrl[this.state.currentIndex] } />
 
        <Arrows
          direction="right"
